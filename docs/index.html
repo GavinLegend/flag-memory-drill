@@ -8,7 +8,7 @@
     />
     <meta
       name="description"
-      content="Practice country and territory flags with four-choice questions and a persistent mistake book."
+      content="Practice world flags with four study modes, a paged mistake book, and mobile-friendly self-test tracking."
     />
     <meta name="theme-color" content="#0f766e" />
     <title>Flag Memory Drill</title>
@@ -22,9 +22,9 @@
         <p class="eyebrow">English Flag Quiz</p>
         <h1>Flag Memory Drill</h1>
         <p class="intro">
-          Practice 249 country and territory flags with four-choice questions.
-          Every miss is saved to your mistake book so you can revisit the flags
-          that keep slipping away.
+          Practice world flags with four-choice questions, a paged mistake book,
+          a no-repeat self-test run, and a UN-only study mode built for iPhone
+          browsers.
         </p>
       </header>
 
@@ -53,6 +53,22 @@
               >
                 Mistake Book
               </button>
+              <button
+                type="button"
+                class="mode-toggle"
+                data-mode="norepeat"
+                aria-pressed="false"
+              >
+                No-Repeat Run
+              </button>
+              <button
+                type="button"
+                class="mode-toggle"
+                data-mode="un"
+                aria-pressed="false"
+              >
+                UN Countries
+              </button>
             </div>
           </div>
 
@@ -64,6 +80,19 @@
             </p>
             <button type="button" id="switch-all-btn" class="secondary-button">
               Back to All Flags
+            </button>
+          </div>
+
+          <div id="run-complete" class="empty-review hidden">
+            <p id="run-complete-title" class="empty-title">
+              No-repeat run complete.
+            </p>
+            <p id="run-complete-copy" class="empty-copy">
+              You finished the full run. Start a new shuffled run whenever you
+              are ready.
+            </p>
+            <button type="button" id="restart-run-btn" class="secondary-button">
+              Start New Run
             </button>
           </div>
 
@@ -99,7 +128,7 @@
 
             <div class="stats-grid">
               <article class="stat-tile">
-                <span class="stat-label">Deck Size</span>
+                <span class="stat-label">Current Deck</span>
                 <strong id="deck-size" class="stat-value">249</strong>
               </article>
 
@@ -124,6 +153,24 @@
             </p>
           </section>
 
+          <section
+            id="mode-stats-card"
+            class="card stats-card hidden"
+            aria-labelledby="mode-stats-heading"
+          >
+            <div class="card-heading">
+              <div>
+                <p class="section-kicker">Mode Stats</p>
+                <h2 id="mode-stats-heading">Mode Snapshot</h2>
+              </div>
+
+              <span id="mode-stats-badge" class="badge">Active Mode</span>
+            </div>
+
+            <div id="mode-stats-grid" class="stats-grid"></div>
+            <p id="mode-stats-summary" class="review-summary"></p>
+          </section>
+
           <section class="card mistakes-card" aria-labelledby="mistakes-heading">
             <div class="card-heading">
               <div>
@@ -135,6 +182,24 @@
             </div>
 
             <div id="mistake-list" class="mistake-list"></div>
+
+            <div id="mistake-pagination" class="mistake-pagination hidden">
+              <button
+                type="button"
+                id="mistake-prev-btn"
+                class="ghost-button pagination-button"
+              >
+                Previous
+              </button>
+              <p id="mistake-page-label" class="pagination-label">Page 1 of 1</p>
+              <button
+                type="button"
+                id="mistake-next-btn"
+                class="ghost-button pagination-button"
+              >
+                Next
+              </button>
+            </div>
           </section>
         </aside>
       </main>

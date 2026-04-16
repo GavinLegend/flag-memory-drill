@@ -150,21 +150,23 @@ button {
 }
 
 .mode-switch {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
   padding: 0.35rem;
-  border-radius: 999px;
+  gap: 0.35rem;
+  border-radius: 22px;
   background: rgba(255, 255, 255, 0.68);
   border: 1px solid var(--line);
 }
 
 .mode-toggle {
-  flex: 1 1 0;
   border: 0;
-  border-radius: 999px;
+  border-radius: 16px;
   padding: 0.82rem 1rem;
   background: transparent;
   color: var(--muted);
+  font-size: 0.96rem;
   font-weight: 700;
   transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
@@ -364,6 +366,28 @@ button {
   margin-top: 0.9rem;
 }
 
+.mistake-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(21, 51, 45, 0.08);
+}
+
+.pagination-button {
+  min-width: 6.9rem;
+  padding-inline: 0.9rem;
+}
+
+.pagination-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
 .mistake-list-items {
   list-style: none;
   margin: 0;
@@ -484,8 +508,7 @@ button {
   }
 
   .mode-switch {
-    width: auto;
-    min-width: 19rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
