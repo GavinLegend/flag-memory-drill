@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Practice country and territory flags with four-choice questions and a persistent mistake book."
+    />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Flag Memory Drill</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="data.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">English Flag Quiz</p>
+        <h1>Flag Memory Drill</h1>
+        <p class="intro">
+          Practice 249 country and territory flags with four-choice questions.
+          Every miss is saved to your mistake book so you can revisit the flags
+          that keep slipping away.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="card quiz-panel" aria-labelledby="quiz-heading">
+          <div class="quiz-toolbar">
+            <div>
+              <p id="pool-label" class="section-kicker">All Flags</p>
+              <h2 id="quiz-heading">Pick the correct name</h2>
+            </div>
+
+            <div class="mode-switch" role="group" aria-label="Quiz mode">
+              <button
+                type="button"
+                class="mode-toggle is-active"
+                data-mode="all"
+                aria-pressed="true"
+              >
+                All Flags
+              </button>
+              <button
+                type="button"
+                class="mode-toggle"
+                data-mode="mistakes"
+                aria-pressed="false"
+              >
+                Mistake Book
+              </button>
+            </div>
+          </div>
+
+          <div id="empty-review" class="empty-review hidden">
+            <p class="empty-title">Your mistake book is empty.</p>
+            <p class="empty-copy">
+              Miss a few flags in All Flags mode first, then come back here for
+              focused review.
+            </p>
+            <button type="button" id="switch-all-btn" class="secondary-button">
+              Back to All Flags
+            </button>
+          </div>
+
+          <div id="question-card" class="question-card">
+            <div class="flag-stage" aria-hidden="true">
+              <div id="flag" class="flag">🇨🇦</div>
+            </div>
+
+            <p class="question-label">Which flag is this?</p>
+            <div id="options" class="options"></div>
+
+            <div class="feedback-row">
+              <p id="feedback" class="feedback" aria-live="polite"></p>
+              <button type="button" id="next-btn" class="secondary-button">
+                Next Flag
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="card stats-card" aria-labelledby="stats-heading">
+            <div class="card-heading">
+              <div>
+                <p class="section-kicker">Progress</p>
+                <h2 id="stats-heading">Session Snapshot</h2>
+              </div>
+
+              <button type="button" id="clear-book-btn" class="ghost-button">
+                Clear Mistake Book
+              </button>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-tile">
+                <span class="stat-label">Deck Size</span>
+                <strong id="deck-size" class="stat-value">249</strong>
+              </article>
+
+              <article class="stat-tile">
+                <span class="stat-label">Answered</span>
+                <strong id="answered-count" class="stat-value">0</strong>
+              </article>
+
+              <article class="stat-tile">
+                <span class="stat-label">Accuracy</span>
+                <strong id="accuracy-value" class="stat-value">0%</strong>
+              </article>
+
+              <article class="stat-tile">
+                <span class="stat-label">Tracked Mistakes</span>
+                <strong id="tracked-count" class="stat-value">0</strong>
+              </article>
+            </div>
+
+            <p id="review-summary" class="review-summary">
+              Review mode is ready when you start missing flags.
+            </p>
+          </section>
+
+          <section class="card mistakes-card" aria-labelledby="mistakes-heading">
+            <div class="card-heading">
+              <div>
+                <p class="section-kicker">Saved Review</p>
+                <h2 id="mistakes-heading">Mistake Book</h2>
+              </div>
+
+              <span id="mistake-total-badge" class="badge">0 flags</span>
+            </div>
+
+            <div id="mistake-list" class="mistake-list"></div>
+          </section>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
